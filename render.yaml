@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: password-policy-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: ALLOWED_ORIGINS
+        value: "*"   # after Vercel deploy, replace with your Vercel URL
